@@ -70,16 +70,8 @@ function renderPlainText(data, plays) {
     result += ` ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
   }
   result += `Amount owed is ${usd(data.totalAmount)}\n`;
-  result += `You earned ${totalVolumeCredits()} credits\n`;
+  result += `You earned ${data.totalVolumeCredits} credits\n`;
   return result;
-
-  function totalVolumeCredits() {
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.volumeCredits
-    }
-    return result;
-  }
 
   function usd(aNumber) {
     return new Intl.NumberFormat('en-US', {
