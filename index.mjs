@@ -5,4 +5,8 @@ import statement from './statement';
 const invoices = JSON.parse(fs.readFileSync('./invoices.json'));
 const plays = JSON.parse(fs.readFileSync('./plays.json'));
 
-console.log(statement(invoices[0], plays));
+const testValue = statement(invoices[0], plays);
+const expectedValue = `Statement for BigCo\n Hamlet: $650.00 (55 seats)\n As You Like It: $475.00 (35 seats)\n Othello: $500.00 (40 seats)\nAmount owed is $1,625.00\nYou earned 47 credits\n`;
+
+console.log(testValue);
+console.log('TEST', expectedValue === testValue ? 'PASS' : 'FAIL');
